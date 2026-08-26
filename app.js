@@ -17,21 +17,21 @@ class personagem{
         this.vida = "eliminado"
     }
 }
+estaVivo(){
+return this.vida > 0
+}
+mostrarStatus(){
+console.log(this.nome + " | Vida: " + this.vida)
+}
+
 }
 const druida = new personagem("Kode", 80, 25)
-
 const guerreiro = new personagem("Thorin", 60, 20)
-
 const mago = new personagem("Gandalfe", 60, 25)
-
 const arqueiro = new personagem("Legolas", 80, 25)
-
 const titã = new personagem("Kryonix", 100, 50)
-
 const anjo = new personagem("Muriel", 110, 15)
-
 const anão = new personagem("zangado", 30, 67)
-
 console.log(guerreiro, "\n",druida,"\n", mago,"\n", arqueiro,"\n", titã, "\n",anjo, "\n",anão)
 
 
@@ -53,4 +53,7 @@ console.log("Vida do Kode:", druida.vida);
 
 titã.causaDano(anjo);
 console.log("\nKryonix atacou muriel");
-console.log("vida do Muriel", anjo.anjo)
+console.log("vida do Muriel", anjo.vida)
+
+
+console.log(mago.estaVivo())
