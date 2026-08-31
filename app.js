@@ -1,7 +1,8 @@
-class personagem{
+class Personagem{
     constructor(nome, vida, ataque, defesa){
         this.nome = nome,
         this.vida = vida,
+        this.vidaMaxima = vida,
         this.ataque = ataque,
         this.defesa = defesa
     }
@@ -37,14 +38,31 @@ console.log(this.nome + " | Vida: " + this.vida)
 }
 
 }
-const druida = new personagem("Kode", 80, 25, 10)
-const guerreiro = new personagem("Thorin", 60, 20, 5)
-const mago = new personagem("Gandalfe", 60, 25,15)
-const arqueiro = new personagem("Legolas", 80, 25, 12)
-const titã = new personagem("Kryonix", 100, 50, 5)
-const anjo = new personagem("Muriel", 110, 15, 20)
-const anão = new personagem("zangado", 30, 67, 10)
-console.log(guerreiro, "\n",druida,"\n", mago,"\n", arqueiro,"\n", titã, "\n",anjo, "\n",anão)
+
+class Guerreiro extends Personagem {
+golpePesado(personagem){
+personagem.recebeDano(this.ataque * 2)
+    }
+}
+class Mago extends Personagem {
+bolaDeFogo(personagem){
+personagem.recebeDano(this.ataque + 15)
+}
+}
+class Arqueiro extends Personagem {
+tiroPreciso(personagem){
+personagem.recebeDano(this.ataque + 10)
+}
+}
+
+const druida = new Personagem("Kode", 80, 25, 10)
+const guerreiro = new Guerreiro("Thorin", 60, 20, 5)
+const mago = new Mago("Gandalfe", 60, 25,15)
+const arqueiro = new Arqueiro("Legolas", 80, 25, 12)
+const tita = new Personagem("Kryonix", 100, 50, 5)
+const anjo = new Personagem("Muriel", 110, 15, 20)
+const anao = new Personagem("zangado", 30, 67, 10)
+console.log(guerreiro, "\n",druida,"\n", mago,"\n", arqueiro,"\n", tita, "\n",anjo, "\n",anao)
 
 
 druida.causaDano(guerreiro);
@@ -63,9 +81,13 @@ guerreiro.causaDano(druida);
 console.log("\nThorin atacou Kode");
 console.log("Vida do Kode:", druida.vida);
 
-titã.causaDano(anjo);
+tita.causaDano(anjo);
 console.log("\nKryonix atacou muriel");
 console.log("vida do Muriel", anjo.vida)
 
+guerreiro.golpePesado(mago)
 
-console.log(mago.estaVivo())
+mago.mostrarStatus()
+
+
+
