@@ -39,21 +39,26 @@ console.log(this.nome + " | Vida: " + this.vida)
 
 }
 
-class Guerreiro extends Personagem {
+    class Guerreiro extends Personagem {
 golpePesado(personagem){
 personagem.recebeDano(this.ataque * 2)
     }
 }
-class Mago extends Personagem {
+    class Mago extends Personagem {
 bolaDeFogo(personagem){
 personagem.recebeDano(this.ataque + 15)
 }
 }
-class Arqueiro extends Personagem {
+    class Arqueiro extends Personagem {
 tiroPreciso(personagem){
 personagem.recebeDano(this.ataque + 10)
 }
 }
+
+   
+
+
+
 
 const druida = new Personagem("Kode", 80, 25, 10)
 const guerreiro = new Guerreiro("Thorin", 60, 20, 5)
@@ -65,6 +70,17 @@ const anao = new Personagem("zangado", 30, 67, 10)
 console.log(guerreiro, "\n",druida,"\n", mago,"\n", arqueiro,"\n", tita, "\n",anjo, "\n",anao)
 
 
+const personagens = [
+    druida,
+    guerreiro,
+    mago,
+    arqueiro,
+    tita,
+    anjo,
+    anao
+]
+
+ 
 druida.causaDano(guerreiro);
 console.log("\nKode atacou Thorin");
 console.log("Vida do Thorin:", guerreiro.vida);
@@ -90,4 +106,21 @@ guerreiro.golpePesado(mago)
 mago.mostrarStatus()
 
 
+   personagens.forEach(function(personagem){
+    personagem.mostrarStatus()
+})
 
+
+let turno = 1
+ let jogadorAtual = 0
+
+  function proximoTurno(){
+    turno = turno + 1
+  jogadorAtual = jogadorAtual === 0 ? 1 : 0
+}
+
+proximoTurno()
+proximoTurno()
+
+console.log(turno)
+console.log(jogadorAtual)
