@@ -59,7 +59,7 @@ personagem.recebeDano(this.ataque + 10)
 
 const druida = new Personagem("Kode", 80, 25, 10)
 const guerreiro = new Guerreiro("Thorin", 60, 20, 5)
-const mago = new Mago("Gandalfe", 60, 25,15)
+const mago = new Mago("Gandalfe", 60, 60,15)
 const arqueiro = new Arqueiro("Legolas", 80, 25, 12)
 const tita = new Personagem("Kryonix", 100, 50, 5)
 const anjo = new Personagem("Muriel", 110, 15, 20)
@@ -97,5 +97,26 @@ let turno = 1
 }
 
 const vidaGuerreiro = document.getElementById("vida-guerreiro")
-
 vidaGuerreiro.innerText = guerreiro.vida
+
+const ataqueGuerreiro = document.getElementById("ataque-guerreiro")
+ataqueGuerreiro.innerText = guerreiro.ataque
+
+const guerreiroAtacar = document.getElementById("guerreiro-atacar")
+guerreiroAtacar.addEventListener("click", () => {
+    guerreiro.causaDano(mago)
+    vidaMago.innerText = mago.vida
+})
+
+const vidaMago = document.getElementById("vida-mago")
+vidaMago.innerText = mago.vida
+
+const ataqueMago = document.getElementById("ataque-mago")
+ataqueMago.innerText = mago.ataque
+
+const magoAtacar = document.getElementById("mago-atacar")
+magoAtacar.addEventListener("click", () => {
+    mago.causaDano(guerreiro)
+    vidaGuerreiro.innerText = guerreiro.vida
+})
+
