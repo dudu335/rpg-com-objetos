@@ -55,9 +55,6 @@ personagem.recebeDano(this.ataque + 10)
 }
 }
 
-   
-
-
 
 
 const druida = new Personagem("Kode", 80, 25, 10)
@@ -80,26 +77,6 @@ const personagens = [
     anao
 ]
 
- 
-druida.causaDano(guerreiro);
-console.log("\nKode atacou Thorin");
-console.log("Vida do Thorin:", guerreiro.vida);
-
-guerreiro.causaDano(druida);
-console.log("\nThorin atacou Kode");
-console.log("Vida do Kode: ", druida.vida );
-
-druida.causaDano(guerreiro);
-console.log("\nKode atacou Thorin");
-console.log("Vida do Thorin:", guerreiro.vida);
-
-guerreiro.causaDano(druida);
-console.log("\nThorin atacou Kode");
-console.log("Vida do Kode:", druida.vida);
-
-tita.causaDano(anjo);
-console.log("\nKryonix atacou muriel");
-console.log("vida do Muriel", anjo.vida)
 
 guerreiro.golpePesado(mago)
 
@@ -119,8 +96,6 @@ let turno = 1
   jogadorAtual = jogadorAtual === 0 ? 1 : 0
 }
 
-proximoTurno()
-proximoTurno()
+const vidaGuerreiro = document.getElementById("vida-guerreiro")
 
-console.log(turno)
-console.log(jogadorAtual)
+vidaGuerreiro.innerText = guerreiro.vida
